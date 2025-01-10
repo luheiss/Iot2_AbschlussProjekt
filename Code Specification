@@ -3,4 +3,5 @@ The specification of the style in which the code is written:
   -Classes in CamelCase (e.g. class MyNewClass():)
   -Functions and methodes with underscore (e.g. def my_function())
   -Variables in pascalCase (e.g. myVar = 10)
+  -Constants in uppercase ( PI = 3.1415)
   
