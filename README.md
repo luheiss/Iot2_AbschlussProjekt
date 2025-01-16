@@ -10,9 +10,10 @@
 - [ ]  Kiosk mode for streamlit
 - Quiz
   
-- Arduino:
+### Arduino:
 - [ ] ESP32 BLE Verbindung mit Raspi
 - [ ] Datenübertragung
 - [ ] welche Sensoren werden verwendet
-- Hardware
+      
+### Hardware
 - [ ] Casing
