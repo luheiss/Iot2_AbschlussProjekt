@@ -1,6 +1,6 @@
-import interface
+import ScreenManagerModule as sm
 
 
-interface.show_interface()
-
+if __name__ == "__main__":
+    sm.MyScreenManagerApp().run()
 
