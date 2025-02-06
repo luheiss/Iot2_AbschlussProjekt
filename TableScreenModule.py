@@ -1,3 +1,4 @@
+from screeninfo import get_monitors
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.gridlayout import GridLayout
@@ -7,6 +8,11 @@ from kivy.graphics import Color, Ellipse
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.clock import Clock
 from RadomIntervalModule import RandomInterval
+
+"""
+-If we connect the raspy, it´s probably best to write an on_enter function to check the cups
+-Sometimes a bug occurs after game over screen -> retry -> game start it switches almost instantly to the question (will fix later)
+"""
 
 
 #if it´s a class for shape, it has to inherit from Widget
@@ -42,20 +48,25 @@ class CircleApp(Screen):
         Window.size = (Window.width, Window.height)
         Window.fullscreen = 'auto'
         Window.clearcolor = (1, 1, 1, 1)
+        monitor = get_monitors()[0]
+        windowWidth = monitor.width
+        windowHeight = monitor.height
+        print(f"Breite: {windowWidth}, Höhe: {windowHeight}")
         layout = GridLayout(cols=3, padding=10, spacing=40)
-
+        
         """TODO
             -Add list with all circleWidget
-            -Write event that if buttons on one side are all red - it´s game over
         """
+        radius = (windowWidth/30)
 
         # Create circle widgets 
-        self.circleWidget1 = CircleWidget(200,150,50.0, size_hint=(None, None), size=(100, 100))
-        self.circleWidget2 = CircleWidget(400,350,50.0, size_hint=(None, None), size=(100, 100))
-        self.circleWidget3 = CircleWidget(200,550,50.0, size_hint=(None, None), size=(100, 100))
-        self.circleWidget4 = CircleWidget(1400,150,50.0, size_hint=(None, None), size=(100, 100))
-        self.circleWidget5 = CircleWidget(1200,350,50.0, size_hint=(None, None), size=(100, 100))
-        self.circleWidget6 = CircleWidget(1400,550,50.0, size_hint=(None, None), size=(100, 100))
+        self.circleWidget1 = CircleWidget(radius * 3, (windowHeight/5), radius)
+        self.circleWidget2 = CircleWidget(radius * 6, (windowHeight/5) * 2, radius)
+        self.circleWidget3 = CircleWidget(radius * 3, (windowHeight/5) * 3, radius)
+        self.circleWidget4 = CircleWidget((windowWidth - radius * 4),(windowHeight/5), radius)
+        self.circleWidget5 = CircleWidget((windowWidth - radius * 7),(windowHeight/5) * 2, radius)
+        self.circleWidget6 = CircleWidget((windowWidth - radius * 4),(windowHeight/5) * 3, radius)
+
         self.teamOneCircles = [self.circleWidget1, self.circleWidget2, self.circleWidget3]
         self.teamTwoCircles = [self.circleWidget4, self.circleWidget5, self.circleWidget6]
         self.list_with_funcs = [self.on_change_color_button1, self.on_change_color_button2, self.on_change_color_button3, self.on_change_color_button4, self.on_change_color_button5, self.on_change_color_button6]
@@ -69,13 +80,14 @@ class CircleApp(Screen):
         exitButton = Button(text="Fenster wechseln", size_hint_y=None, height=100)
         exitButton.bind(on_press=self.on_change_status)
 
-        layout.add_widget(exitButton)        
-        layout.add_widget(self.circleWidget1, index=0)  
-        layout.add_widget(self.circleWidget2, index=0)  
-        layout.add_widget(self.circleWidget3, index=0)   
-        layout.add_widget(self.circleWidget4, index=0)   
-        layout.add_widget(self.circleWidget5, index=0)   
-        layout.add_widget(self.circleWidget6, index=0)   
+        layout.add_widget(self.circleWidget1)  
+        layout.add_widget(self.circleWidget2)  
+        layout.add_widget(self.circleWidget3)   
+        layout.add_widget(self.circleWidget4)   
+        layout.add_widget(self.circleWidget5)   
+        layout.add_widget(self.circleWidget6)   
+        layout.add_widget(exitButton, index = 0)        
+    
         self.add_widget(layout)
     
     #handler for changing color, instance parameter is required!
@@ -125,6 +137,3 @@ class CircleApp(Screen):
 
     def on_change_status(self, instance):
         self.manager.current = 'main'
-    
-    def game_over(self, instance):
-        self.manager.curren = 'gameover'

@@ -3,20 +3,14 @@
         "1": {
             "question": "Berechne das im Bild gezeigte mechanische Problem",
             "correctAnswer": "1",
-            "firstAnswer": "M = 32 Nm",
-            "secondAnswer": "M = 64 Nm",
-            "thridAnswer": "M = 69 Nm",
-            "fourthAnswer": "M = 10 Nm",
+            "answers": ["M = 32 Nm", "M = 64 Nm", "M = 10 Nm", "M = 20 Nm"],
             "picturePath": "/pictures/Mechanik_Aufgabe.png"
         },
 
         "2": {
             "question": "Berechne den Gesamtwiderstand",
             "correctAnswer": "4",
-            "firstAnswer": "R_g = 10 Ohm",
-            "secondAnswer": "R_g = 20 Ohm",
-            "thridAnswer": "R_g = 30 Ohm",
-            "fourthAnswer": "R_g = 40 Ohm",
+            "answers": ["R_g = 20 Ohm", "R_g = 10 Ohm", "R_g = 5 Ohm", "R_g = 50 Ohm"],
             "picturePath": "/pictures/Widerstandsnetzwerk_Aufgabe.png"
         }
     }
