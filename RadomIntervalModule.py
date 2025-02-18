@@ -9,10 +9,9 @@ class RandomInterval():
 
     @classmethod
     def get_random_interval(cls):
-        print(f"Derzeitiges Interval: {cls.radomInterval}")
         return cls.radomInterval
     
     @classmethod
     def set_random_interval(cls):
         cls.radomInterval =  random.randint(INTERVALLOWERBOUND, INTERVALUPPERBOUND)
-        print(f"Neues Intervall: {cls.radomInterval}")
+        

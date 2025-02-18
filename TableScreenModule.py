@@ -51,7 +51,6 @@ class CircleApp(Screen):
         monitor = get_monitors()[0]
         windowWidth = monitor.width
         windowHeight = monitor.height
-        print(f"Breite: {windowWidth}, Höhe: {windowHeight}")
         layout = GridLayout(cols=3, padding=10, spacing=40)
         
         """TODO
@@ -98,6 +97,7 @@ class CircleApp(Screen):
         if all(circle.get_is_red() for circle in self.teamOneCircles):
             self.manager.current = 'gameover'
 
+    #DRY - don´t repeat yourself duh, add to todo 
     def on_change_color_button2(self, instance):
         self.circleWidget2.change_color()
         if all(circle.get_is_red() for circle in self.teamOneCircles):
