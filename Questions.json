@@ -12,6 +12,13 @@
             "correctAnswer": 4,
             "answers": ["R_g = 20 Ohm", "R_g = 10 Ohm", "R_g = 5 Ohm", "R_g = 50 Ohm"],
             "picturePath": "pictures/Widerstandsnetzwerk_Aufgabe.png"
+        },
+        "3": {
+            "question": "Vereinfache folgende Aufgabe",
+            "correctAnswer": 2,
+            "answers": ["log_b(x/(y+z))", "log_b(1/(z^3 * sqrt(y))", "log_b(sqrt(1/z))", "log_b(1/2x) + z"],
+            "picturePath": "pictures/Vereinfachung_Aufgabe.png"
+            
         }
     }
 }

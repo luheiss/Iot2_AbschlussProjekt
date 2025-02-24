@@ -76,16 +76,13 @@ class CircleApp(Screen):
             button.bind(on_press=self.list_with_funcs[i-1])
             layout.add_widget(button)
 
-        exitButton = Button(text="Fenster wechseln", size_hint_y=None, height=100)
-        exitButton.bind(on_press=self.on_change_status)
 
         layout.add_widget(self.circleWidget1)  
         layout.add_widget(self.circleWidget2)  
         layout.add_widget(self.circleWidget3)   
         layout.add_widget(self.circleWidget4)   
         layout.add_widget(self.circleWidget5)   
-        layout.add_widget(self.circleWidget6)   
-        layout.add_widget(exitButton, index = 0)        
+        layout.add_widget(self.circleWidget6)           
     
         self.add_widget(layout)
     
