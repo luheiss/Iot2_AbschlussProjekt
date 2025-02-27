@@ -89,3 +89,4 @@ Für die Anwendung auf dem Raspberry Pi sollte der main-Branch verwendet werden:
 Das System erkennt Treffer auf Becher und wertet das Spiel in Echtzeit aus. Zudem werden in unregelmäßegen abständen Fragen angezeigt.
 
 # Viel Spaß beim digitalen BeerPong! 🍻
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
