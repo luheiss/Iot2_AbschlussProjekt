@@ -10,7 +10,7 @@ Dieses Projekt ist eine digitale Umsetzung des beliebten Spiels BeerPong. Ziel i
 
 ## Installation auf dem Raspberry Pi
 
-## 1. Vorbereitung
+### 1. Vorbereitung
 
 Erstelle ein neues Verzeichnis und wechsle in dieses:
 ```bash
@@ -18,42 +18,41 @@ mkdir ProjektBeerPong
 cd ProjektBeerPong
 ```
 
-2. Repository klonen
+### 2. Repository klonen
 
-Klonen des Git-Repositories:
+Klonen des Git-Repositories
 
-git clone <REPO_URL> .
-
-3. Virtuelle Umgebung einrichten
+### 3. Virtuelle Umgebung einrichten
 
 Erstelle eine virtuelle Umgebung im Verzeichnis:
 
+```bash
 python3 -m venv .venv
+```
 
 Aktiviere die virtuelle Umgebung:
-
+```bash
 source .venv/bin/activate
+```
 
-4. Zum Interface-Branch wechseln
-
-git checkout interface
-
-5. Abhängigkeiten installieren
-
+### 5. Abhängigkeiten installieren
+```bash
 pip install -r requirements.txt
+```
 
-6. Start-Skript ausführbar machen
-
+### 6. Start-Skript ausführbar machen
+```bash
 sudo chmod +x start_script.sh
+´´´
 
-7. Autostart-Service einrichten
+### 7. Autostart-Service einrichten
 
 Erstelle eine neue Service-Datei:
-
+```bash
 sudo nano /etc/systemd/system/projekt_beerpong.service
-
+```
 Füge folgenden Inhalt ein:
-
+```bash
 [Unit]
 Description=Projekt BeerPong Autostart
 After=network.target
@@ -68,31 +67,25 @@ User=ParryHotter
 
 [Install]
 WantedBy=multi-user.target
-
+```
 Speichere und schließe die Datei.
 
-8. Service aktivieren und starten
+### 8. Service aktivieren und starten
 
-Lade die Systemd-Daemon neu:
-
+Lade die Systemd-Daemon neu, Aktiviere den Service für den automatischen Start und Starte den Service:
+```bash
 sudo systemctl daemon-reload
-
-Aktiviere den Service für den automatischen Start:
-
 sudo systemctl enable projekt_beerpong
-
-Starte den Service:
-
 sudo systemctl start projekt_beerpong
+```
 
-9. Branch für die Anwendung auf dem Raspberry Pi
+### 9. Branch für die Anwendung auf dem Raspberry Pi
 
 Für die Anwendung auf dem Raspberry Pi sollte der main-Branch verwendet werden:
 
-git checkout main
 
-Funktionsweise
+### Funktionsweise
 
-Das System erkennt Treffer auf Becher und wertet das Spiel in Echtzeit aus. Es bietet eine smarte Benutzeroberfläche zur Anzeige der Spielstände und ermöglicht eine interaktive Spielerfahrung.
+Das System erkennt Treffer auf Becher und wertet das Spiel in Echtzeit aus. Zudem werden in unregelmäßegen abständen Fragen angezeigt.
 
-Viel Spaß beim digitalen BeerPong! 🍻
+# Viel Spaß beim digitalen BeerPong! 🍻
