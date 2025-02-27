@@ -1,3 +1,9 @@
+![GitHub repo size](https://img.shields.io/github/repo-size/luheiss/Iot2_AbschlussProjekt)
+![GitHub last commit](https://img.shields.io/github/last-commit/luheiss/Iot2_AbschlussProjekt)
+![GitHub stars](https://img.shields.io/github/stars/luheiss/Iot2_AbschlussProjekt)
+![GitHub issues](https://img.shields.io/github/issues/luheiss/Iot2_AbschlussProjekt)
+
+
 IoT2 Abschlussprojekt - BeerPong Digitalisierung
 
 Dieses Projekt ist eine digitale Umsetzung des beliebten Spiels BeerPong. Ziel ist es, mithilfe eines Raspberry Pi und entsprechender Software eine smarte, automatisierte Version des Spiels zu realisieren.
