@@ -4,6 +4,7 @@ from bleak import BleakScanner, BleakClient
 import os
 
 SENSOR_DATA_FILE = "sensor_data.json"
+
 sensor_data = {}
 
 ESP32_DEVICES = {
@@ -13,10 +14,9 @@ ESP32_DEVICES = {
 
 CHARACTERISTIC_UUID = "19B10001-E8F2-537E-4F6C-D104768A1214"
 
-
 async def find_esp32():
     """Scannt nach ESP32-Geräten und speichert die Adressen."""
-    print("🔍 Scanne nach ESP32-Modulen...")
+    print("🔍 Scanne nach ESP32-Module...")
     devices = await BleakScanner.discover()
     found = False
     for device in devices:
@@ -26,7 +26,6 @@ async def find_esp32():
                 print(f"✅ {name} gefunden: {device.address}")
                 found = True
     return found
-
 
 async def connect_and_read(name, address):
     """Verbindet sich mit einem ESP32, empfängt Daten und speichert sie."""
@@ -45,7 +44,7 @@ async def connect_and_read(name, address):
                         "Cup2": values[1],
                         "Cup3": values[2]
                     }
-                    print(f"📡 {name} - Cup1: {values[0]}, Cup2: {values[1]}, Cup3: {values[2]}")
+                    #print(f"📡 {name} - Cup1: {values[0]}, Cup2: {values[1]}, Cup3: {values[2]}")
                     save_sensor_data()  # Speichern in Datei
 
             await client.start_notify(CHARACTERISTIC_UUID, notification_handler)
@@ -60,12 +59,6 @@ async def connect_and_read(name, address):
 
     except Exception as e:
         print(f"❌ Fehler bei {name}: {e}")
-        # Falls das Modul nicht mehr erreichbar ist, entferne es aus den Daten
-        if name in sensor_data:
-            del sensor_data[name]
-            save_sensor_data()
-        print(f"❌ {name} entfernt aus der Liste, da keine Verbindung möglich war.")
-
 
 def save_sensor_data():
     """Speichert die Sensordaten in eine JSON-Datei."""
@@ -75,33 +68,29 @@ def save_sensor_data():
     except Exception as e:
         print(f"⚠️ Fehler beim Speichern der Daten: {e}")
 
-
 def get_modul_daten(modulname):
     """Liest die Sensordaten aus der JSON-Datei."""
     if not os.path.exists(SENSOR_DATA_FILE):
-        return None  # Falls die Datei nicht existiert, kein ESP verbunden
-
+        return {"Cup1": None, "Cup2": None, "Cup3": None}
+    
     try:
         with open(SENSOR_DATA_FILE, "r") as file:
             data = json.load(file)
-        return data.get(modulname, None)  # Falls kein Modul vorhanden, gebe None zurück
+        return data.get(modulname, {"Cup1": None, "Cup2": None, "Cup3": None})
     except (json.JSONDecodeError, FileNotFoundError):
-        return None
-
+        return {"Cup1": None, "Cup2": None, "Cup3": None}
 
 async def main():
-    """Hauptprozess: Scannt und verbindet sich mit ESP32-Modulen"""
     while True:
         if await find_esp32():
             tasks = []
             for name, info in ESP32_DEVICES.items():
                 if info["address"]:
-                    await asyncio.sleep(2)  # Warte kurz zwischen Verbindungen
+                    await asyncio.sleep(2)
                     tasks.append(connect_and_read(name, info["address"]))
             if tasks:
                 await asyncio.gather(*tasks)
-        await asyncio.sleep(5)  # Wartezeit zwischen Scans
-
+        await asyncio.sleep(5)
 
 if __name__ == "__main__":
     asyncio.run(main())
