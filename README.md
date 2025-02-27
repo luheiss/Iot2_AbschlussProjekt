@@ -83,6 +83,12 @@ sudo systemctl start projekt_beerpong
 
 Für die Anwendung auf dem Raspberry Pi sollte der main-Branch verwendet werden:
 
+### Weiteres
+in der requirements.txt felht aktuell noch die bleak bitte mit 
+```bash
+pip install -r bleak
+```
+hinzufügen
 
 ### Funktionsweise
 
