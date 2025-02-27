@@ -4,18 +4,19 @@
 ![GitHub issues](https://img.shields.io/github/issues/luheiss/Iot2_AbschlussProjekt)
 
 
-IoT2 Abschlussprojekt - BeerPong Digitalisierung
+# IoT2 Abschlussprojekt: 3D-Drucker-Wartezeitüberbrückungsmodul
 
 Dieses Projekt ist eine digitale Umsetzung des beliebten Spiels BeerPong. Ziel ist es, mithilfe eines Raspberry Pi und entsprechender Software eine smarte, automatisierte Version des Spiels zu realisieren.
 
-Installation auf dem Raspberry Pi
+## Installation auf dem Raspberry Pi
 
-1. Vorbereitung
+## 1. Vorbereitung
 
 Erstelle ein neues Verzeichnis und wechsle in dieses:
-
+```bash
 mkdir ProjektBeerPong
 cd ProjektBeerPong
+```
 
 2. Repository klonen
 
