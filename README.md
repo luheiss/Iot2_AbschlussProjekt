@@ -89,4 +89,4 @@ Für die Anwendung auf dem Raspberry Pi sollte der main-Branch verwendet werden:
 Das System erkennt Treffer auf Becher und wertet das Spiel in Echtzeit aus. Zudem werden in unregelmäßegen abständen Fragen angezeigt.
 
 # Viel Spaß beim digitalen BeerPong! 🍻
-![Alt Text](<div class="tenor-gif-embed" data-postid="16765874" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/stone-cold-steve-austin-drink-beer-drinking-beer-beer-bash-wwe-gif-16765874">Stone Cold Steve Austin Drink Beer GIF</a>from <a href="https://tenor.com/search/stone+cold+steve+austin-gifs">Stone Cold Steve Austin GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>)
+![Alt Text](https://tenor.com/de/view/stone-cold-steve-austin-drink-beer-drinking-beer-beer-bash-wwe-gif-16765874)
