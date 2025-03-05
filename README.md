@@ -93,6 +93,7 @@ hinzufügen
 ### Funktionsweise
 
 Das System erkennt Treffer auf Becher und wertet das Spiel in Echtzeit aus. Zudem werden in unregelmäßegen abständen Fragen angezeigt.
+
 ![Image](https://github.com/user-attachments/assets/566123ae-1fc6-4ce5-8f1d-b5560897d751)
 
 # Viel Spaß beim digitalen BeerPong! 🍻
