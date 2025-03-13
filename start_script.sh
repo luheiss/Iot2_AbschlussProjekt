@@ -7,7 +7,7 @@ cd /home/ParryHotter/BeerPong
 source .venv/bin/activate
 
 # Starte BLE_Search.py und warte, bis es fertig ist
-python BLE_Search.py
+python BLE_Search.py &
 
 # Danach starte main.py
 python main.py
